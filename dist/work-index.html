@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="shortcut icon" href="/work.ico" />
+    <link rel="bookmark" href="/work.ico" />
+    <title data-i18n="index-content-ntCount2">新致云 云算天下-让天下企业没有难上的“云”</title>
+    <meta name="keywords" content="云服务,新致云计算,云存储,云主机,团队协作,私有云">
+    <meta name="description" content="新致云为客户提供IaaS、PaaS的基础设施以及专业的SaaS应用托管、解决方案与应用开发/迁移服务。 通过以云计算为核心的全面IT服务解决方案在企业上云过程中B端和D端面临的挑战。新致云服务领域覆盖银行、保险、医疗、汽车、互联网、企业服务等多个行业，快速注册享用云计算体验包。">
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <script type="text/javascript" src="/jsCache.min.js"></script>
+    <script type="text/javascript">
+    jsCache.domReady(function() {
+        // 设置缓存过期时间
+        jsCache.expires = 3650 * 24 * 60 * 60 * 1000;
+        // 依赖插件配置cacheMap
+        window.cacheMap = {
+            // ========================== css 样式相关 ==============================
+            // bootstrap 样式包
+            bootstrap: '//cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css',
+            // 字体图标 样式包
+            fontAwesome: '//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css',
+
+            // ========================== javascript 脚本相关 ==============================
+            // 开发打包
+            app: '/work.js',
+            // 生产环境打包组件
+            bundle: '/work.d4d706a68061894282a0.js',
+            // 浏览器缓存组件
+            localStorage: '//cdn.bootcss.com/localStorage/2.0.1/localStorage.min.js',
+            // 浏览器缓存（兼容组件）
+            localStorageSWF: '//cdn.bootcss.com/localStorage/2.0.1/localStorage.swf',
+            // react.min 组件
+            reactMin: '//cdn.bootcss.com/react/15.2.1/react.min.js',
+            // react 组件
+            react: '//cdn.bootcss.com/react/15.2.1/react.js',
+            // react Dom 组件
+            reactDom: '//cdn.bootcss.com/react/15.2.1/react-dom.min.js',
+            // 数据版本组件
+            immutable: '//cdn.bootcss.com/immutable/3.8.1/immutable.min.js',
+            // 事件发布订阅组件
+            pubsub: '//cdn.bootcss.com/pubsub-js/1.5.3/pubsub.min.js',
+            // react 路由组件
+            reactRouter: '//cdn.bootcss.com/react-router/2.6.0/ReactRouter.min.js',
+            // jquery 组件
+            jquery: '//cdn.bootcss.com/jquery/2.2.4/jquery.min.js'
+        }
+
+        // 是否为开发环境
+        var isDev = (function() {
+            // 初始化为非开发环境
+            var isDev = false;
+            // 获取当前浏览器url
+            var href = location.href;
+            // 如果url包含localhost 或是 127.0.0.1 则为开发环境
+            if (href.indexOf('localhost') || href.indexOf('127.0.0.1')) {
+                // 设置为开发环境
+                isDev = true;
+            }
+            // 返回环境标志位
+            return isDev;
+        })();
+
+        var reactUrl = isDev ? cacheMap.react : cacheMap.reactMin;
+
+        // 如果支持 localStorage 存储
+        if (localStorage) {
+            // 需删除 无效插件 数组
+            var removes = [];
+            // 遍历localStorage
+            for (var k in localStorage) {
+                // 如果k 包含 jsCache_
+                if (k.indexOf('jsCache_') > -1) {
+                    // 获得 缓存插件url
+                    var bn = k.replace('jsCache_', '');
+                    // 默认不匹配
+                    var load = false;
+                    // 遍历依赖插件cacheMap
+                    for (var n in cacheMap) {
+                        // 获得插件url
+                        var url = cacheMap[n];
+                        // 如果该插件需要加载
+                        if (bn === url) {
+                            // 插件需要加载
+                            load = true;
+                        }
+                    }
+                    // 如果插件不需要加载
+                    if (!load) {
+                        // 放入移除数组
+                        removes.push(bn);
+                    }
+                }
+            }
+            // 遍历插件移除数组
+            for (var i in removes) {
+                // 删除依赖包
+                jsCache.remove(removes[i]);
+            }
+            // 如果不支持 localStorage 加载依赖组件
+        } else {
+            // 加载 localStorage 组件
+            jsCache.load({
+                url: cacheMap.localStorage + '?swfURL=' + cacheMap.localStorageSWF
+            });
+        }
+
+        // ===================================== css 样式加载 ===============================
+        // 加载样式依赖包
+        jsCache.load({
+            url: cacheMap.fontAwesome
+        }).then(function() {
+            // 获得缓存内容
+            var c = jsCache.get(cacheMap.fontAwesome);
+            var d = c && c.data;
+            // 获得字体css
+            if (d) {
+                // 替换本地资源加载为CDN 资源加载
+                c.data = c.data.replace(/\.\.\/fonts/gm, 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts');
+                // 替换路径，重写保存数据
+                if (d !== c.data) {
+                    // 将新内容写入 window localStorage
+                    window.localStorage.setItem('jsCache_' + cacheMap.fontAwesome, JSON.stringify(c));
+                    // 将新资源加载到页面
+                    jsCache.load({
+                        'url': cacheMap.fontAwesome
+                    });
+                }
+            }
+
+            jsCache.load({
+                // 加载bootstrap 样式包
+                url: cacheMap.bootstrap
+            }, {
+                // 加载ion图标 样式包
+                url: cacheMap.ionIcons
+            }).then(function() {
+                jsCache.load({
+                    // 加载 adminLTE UI 框架 样式包
+                    url: cacheMap.adminLTE
+                }).then(function() {
+                    jsCache.load({
+                        // 加载 adminLTE UI 框架 【皮肤】 样式包
+                        url: cacheMap.adminLTEAllSkins
+                    })
+                });
+            });
+            // ===================================== javascript 脚本加载 ===============================
+            // 加载相关依赖包
+            jsCache.load({
+                // 加载jquery 组件
+                url: cacheMap.jquery
+            }, {
+                // 加载react 组件
+                url: reactUrl
+            }).then(function() {
+                jsCache.load({
+                    // 加载react-dom 组件
+                    url: cacheMap.reactDom
+                }, {
+                    // 加载数据版本组件
+                    url: cacheMap.immutable
+                }, {
+                    // 加载事件发布订阅组件
+                    url: cacheMap.pubsub
+                }, {
+                    // react 路由组件
+                    url: cacheMap.reactRouter
+                }).then(function() {
+                    // 如果当前为开发环境
+                    if (isDev) {
+                        jsCache.remove(cacheMap.app);
+                        // 加载开发环境包
+                        jsCache.load({
+                            url: cacheMap.app
+                        });
+                    } else {
+                        // 加载测试或生产环境包
+                        jsCache.load({
+                            url: cacheMap.bundle
+                        });
+                    }
+                });
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

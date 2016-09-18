@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>AdminLTE 组件</title>
+</head>
+
+<body class="skin-blue sidebar-mini wysihtml5-supported">
+    <div id="dashboard-container">
+        <!-- Dashboard component gets rendered here -->
+    </div>
+    <script type="text/javascript" src="/jsCache.min.js"></script>
+    <script type="text/javascript">
+    jsCache.domReady(function() {
+        // 设置缓存过期时间
+        jsCache.expires = 3650 * 24 * 60 * 60 * 1000;
+
+        // 依赖插件配置cacheMap
+        window.cacheMap = {
+            // ========================== css 样式相关 ==============================
+            // bootstrap 样式包
+            bootstrap: '//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css',
+            // 字体图标 样式包
+            fontAwesome: '//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css',
+            // ion图标 样式包
+            ionIcons: '//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css',
+            // adminLTE UI框架 样式包
+            adminLTE: '//cdn.bootcss.com/admin-lte/2.3.5/css/AdminLTE.min.css',
+            // adminLTE UI框架 皮肤 样式包
+            adminLTEAllSkins: '//cdn.bootcss.com/admin-lte/2.3.5/css/skins/_all-skins.min.css',
+
+            // ========================== javascript 脚本相关 ==============================
+            // 系统公共部分
+            shared: '/shared.js',
+
+            // (开发环境) 系统入口文件
+            appDev: '/app.js',
+            // (测试生产环境) 系统入口文件
+            app: '/app.d4d706a68061894282a0.js',
+
+            // 国际化语言文件
+            // 国际化中文（开发环境）
+            i18n_zhDev: '/i18n_zh.js',
+            // 国际化中文（测试生产环境）
+            i18n_zh: '/i18n_zh.d4d706a68061894282a0.js',
+            // 国际化英文（开发环境）
+            i18n_enDev: '/i18n_en.js',
+            // 国际化英文（测试生产环境）
+            i18n_en: '/i18n_en.d4d706a68061894282a0.js',
+
+            // 浏览器缓存组件
+            localStorage: '//cdn.bootcss.com/localStorage/2.0.1/localStorage.min.js',
+            // 浏览器缓存（兼容组件）
+            localStorageSWF: '//cdn.bootcss.com/localStorage/2.0.1/localStorage.swf',
+            // react 压缩组件 （测试生产环境）
+            react: '//cdn.bootcss.com/react/15.2.1/react.min.js',
+            // react 组件 （开发环境）
+            reactDev: '//cdn.bootcss.com/react/15.2.1/react.js',
+            // react Dom 组件
+            reactDom: '//cdn.bootcss.com/react/15.2.1/react-dom.min.js',
+            // 数据版本组件
+            immutable: '//cdn.bootcss.com/immutable/3.8.1/immutable.min.js',
+            // 事件发布订阅组件
+            pubsub: '//cdn.bootcss.com/pubsub-js/1.5.3/pubsub.min.js',
+            // react 路由组件
+            reactRouter: '//cdn.bootcss.com/react-router/2.6.0/ReactRouter.min.js',
+            // jquery 组件
+            jquery: '//cdn.bootcss.com/jquery/2.2.4/jquery.min.js',
+            // jquery-validation 表单验证组件
+            jqueryValidation: '//cdn.bootcss.com/jquery-validate/1.15.1/jquery.validate.min.js',
+
+            // 拖拽样式
+            sliderCss: '//cdn.bootcss.com/bootstrap-slider/9.1.3/css/bootstrap-slider.min.css',
+            // 拖拽需要的js
+            slider: '//cdn.bootcss.com/bootstrap-slider/9.1.3/bootstrap-slider.min.js',
+            // 拖拽条需要的样式
+            rangeCss: '//cdn.bootcss.com/ion-rangeslider/2.1.4/css/ion.rangeSlider.min.css',
+            // 拖拽条其他样式
+            rengeNiceCss: '//cdn.bootcss.com/ion-rangeslider/2.1.4/css/ion.rangeSlider.skinNice.min.css',
+            // 拖拽条需要的js
+            range: '//cdn.bootcss.com/ion-rangeslider/2.1.4/js/ion.rangeSlider.min.js',
+
+            // bootstrap插件js
+            bootstrapJs: '//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js',
+            //daterange picker
+            dateRangePicker: '//cdn.bootcss.com/bootstrap-daterangepicker/2.1.24/daterangepicker.min.css',
+            //Bootstrap Color Picker
+            colorPicker: '//cdn.bootcss.com/bootstrap-colorpicker/2.3.3/css/bootstrap-colorpicker.min.css',
+            //Bootstrap time Picker
+            timePicker: '//cdn.bootcss.com/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css',
+            //Select2
+            select2: '//cdn.bootcss.com/select2/4.0.3/css/select2.min.css',
+
+            //Select2
+            select2Js: '//cdn.bootcss.com/select2/4.0.3/js/select2.full.min.js',
+            //InputMask
+            inputMask: '//cdn.bootcss.com/jquery.inputmask/3.3.1/inputmask/inputmask.min.js',
+            inputMaskDate: '//cdn.bootcss.com/jquery.inputmask/3.3.1/inputmask/inputmask.date.extensions.min.js',
+            inputExtensions: '//cdn.bootcss.com/jquery.inputmask/3.3.1/inputmask/inputmask.extensions.min.js',
+            //date-range-picker
+            cloudFlare: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js',
+            dateRangePickerJs: '//cdn.bootcss.com/bootstrap-daterangepicker/2.1.24/daterangepicker.min.js',
+            //bootstrap color picker
+            colorPickerJs: '//cdn.bootcss.com/bootstrap-colorpicker/2.3.3/js/bootstrap-colorpicker.min.js',
+            //bootstrap time picker
+            timepickerJs: '//cdn.bootcss.com/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js',
+            //SlimScroll
+            slimScroll: '//cdn.bootcss.com/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js',
+
+            //iCheck for checkboxes and radio inputs
+            iCheck: '//cdn.bootcss.com/iCheck/1.0.2/skins/all.css',
+            //input获取焦点颜色iCheck
+            iCheckSquareBlue: '//cdn.bootcss.com/iCheck/1.0.2/skins/square/blue.css',
+            iCheckFlatBlue: '//cdn.bootcss.com/iCheck/1.0.2/skins/flat/blue.css',
+            //iCheckjs
+            iCheckjs: '//cdn.bootcss.com/iCheck/1.0.2/icheck.min.js',
+
+            //FastClick
+            fastClick: '//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js',
+
+            //富文本编辑
+            ckeditor: '//cdn.ckeditor.com/4.4.3/standard/ckeditor.js',
+            ionicons: '//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css',
+            wysihtml5: '//cdn.bootcss.com/bootstrap3-wysiwyg/0.3.3/bootstrap3-wysihtml5.all.min.js',
+            wysihtml5Css: '//cdn.bootcss.com/bootstrap3-wysiwyg/0.3.3/bootstrap3-wysihtml5.min.css',
+
+            //图表绘图插件
+            chartjs: '//cdn.bootcss.com/Chart.js/2.2.1/Chart.min.js',
+            flot: '//cdn.bootcss.com/flot/0.8.3/jquery.flot.min.js',
+            flotResize: '//cdn.bootcss.com/flot/0.8.3/jquery.flot.resize.min.js',
+            flotPie: '//cdn.bootcss.com/flot/0.8.3/jquery.flot.pie.min.js',
+            flotCategories: '//cdn.bootcss.com/flot/0.8.3/jquery.flot.categories.min.js',
+
+            //邮箱样式与插件
+            fullCalendarCss: '//cdn.bootcss.com/fullcalendar/3.0.0-beta/fullcalendar.min.css',
+            fullCalendarPrintCss: '//cdn.bootcss.com/fullcalendar/3.0.0-beta/fullcalendar.print.css',
+
+            //charts--inline
+            knob: '//cdn.bootcss.com/jQuery-Knob/1.2.13/jquery.knob.min.js',
+            sparkline: '//cdn.bootcss.com/jquery-sparklines/2.1.2/jquery.sparkline.min.js',
+            //charts--morris
+            raphael: '//cdn.bootcss.com/raphael/2.2.1/raphael.min.js',
+            morris: '//cdn.bootcss.com/morris.js/0.5.1/morris.min.js',
+            morrisCss: '//cdn.bootcss.com/morris.js/0.5.1/morris.css',
+            //calendar
+            moment: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js',
+            fullcalendar: '//cdn.bootcss.com/fullcalendar/3.0.0-beta/fullcalendar.min.js',
+            fullcalendarCss: '//cdn.bootcss.com/fullcalendar/3.0.0-beta/fullcalendar.min.css',
+            fullcalendarPrint: '//cdn.bootcss.com/fullcalendar/3.0.0-beta/fullcalendar.print.css',
+            jqueryUi: '//code.jquery.com/ui/1.11.4/jquery-ui.min.js'
+
+        };
+
+        // 路由
+        window.loadMap = {
+            // 
+            '/ui_elements/sliders': [cacheMap.sliderCss, cacheMap.rangeCss, cacheMap.rengeNiceCss, cacheMap.slider, cacheMap.range],
+            '/forms/advanced': [cacheMap.dateRangePicker, cacheMap.iCheck, cacheMap.colorPicker, cacheMap.timePicker, cacheMap.select2, cacheMap.select2Js, cacheMap.inputMask, cacheMap.inputMaskDate, cacheMap.inputExtensions, cacheMap.cloudFlare, cacheMap.dateRangePickerJs, cacheMap.colorPickerJs, cacheMap.timepickerJs, cacheMap.slimScroll, cacheMap.iCheckjs, cacheMap.fastClick],
+            '/forms/general': [cacheMap.fastClick],
+            //'/examples/login':[cacheMap.iCheckjs, cacheMap.iCheckSquareBlue],
+            '/forms/editors': [cacheMap.ckeditor, cacheMap.wysihtml5, cacheMap.ionicons, cacheMap.wysihtml5Css],
+            '/charts/chartjs': [cacheMap.chartjs, cacheMap.fastClick],
+            '/charts/flot': [cacheMap.fastClick, cacheMap.flot, cacheMap.flotResize, cacheMap.flotPie, cacheMap.flotCategories],
+            '/mailbox/mailbox': [cacheMap.fullCalendarCss, cacheMap.fullCalendarPrintCss, cacheMap.iCheckFlatBlue, cacheMap.slimScroll, cacheMap.fastClick, cacheMap.iCheckjs],
+            '/mailbox/compose': [cacheMap.wysihtml5Css, cacheMap.wysihtml5],
+            '/charts/inline': [cacheMap.knob, cacheMap.sparkline],
+            '/charts/morris': [cacheMap.raphael, cacheMap.morris, cacheMap.morrisCss],
+            '/calendar': [cacheMap.moment, cacheMap.fullcalendar, cacheMap.fullcalendarCss, cacheMap.fullcalendarPrint, cacheMap.jqueryUi, cacheMap.slimscroll]
+        };
+
+        // 是否为开发环境
+        var isDev = (function() {
+            // 初始化为非开发环境
+            var isDev = false;
+            // 获取当前浏览器url
+            var href = location.href;
+            // 如果url包含localhost 或是 127.0.0.1 则为开发环境
+            if (href.indexOf('localhost') || href.indexOf('127.0.0.1')) {
+                // 设置为开发环境
+                isDev = true;
+            }
+            // 返回环境标志位
+            return isDev;
+        })();
+
+        /**
+         * [getUrl 根据cacheMap 中key获取不同 js(开发环境不压缩js 与 测试生产压缩js)]
+         * @param  {[type]} key [cacheMap 中key]
+         * @return {[type]}     [description]
+         */
+        jsCache.getUrl = function(key) {
+            // 根据环境获取 有Dev 后缀的key
+            var key = isDev ? key + 'Dev' : key;
+            // 返回cacheMap中key 的url
+            return cacheMap[key];
+        }
+
+        /**
+         * [containJsCacheContent jsCache中是否保护内容]
+         * @param  {[type]} url   [资源url]
+         * @param  {[type]} query [查询器(字符串)]
+         * @return {[type]}       [存在true | 不存在false]
+         */
+        function containJsCacheContent(url, query) {
+            // 从jsCahce中获取缓存资源数据
+            var c = jsCache.get(url);
+            // 返回缓存数据
+            var d = c && c.data;
+            // 当数据存在 并且 查询内容存在 返回 true 其他情况返回 false
+            return !!(d && d.indexOf(query) > -1);
+        }
+
+        /**
+         * [changeJsCacheContent 改变jsCache缓存数据内容，并重新加载到页面；如：修改字体路径，改变输出函数]
+         * @param  {[type]} url     [资源url]
+         * @param  {[type]} query   [查询器(字符串 | 正则对象)]
+         * @param  {[type]} replace [需替换的内容]
+         * @return {[type]}         [description]
+         */
+        function changeJsCacheContent(url, query, replace) {
+            // 根据资源url，获得缓存内容
+            var c = jsCache.get(url);
+            // 如果数据存在，获取内容
+            var d = c && c.data;
+            // 如果缓存的内容存在
+            if (d) {
+                // 根据query查询器，查询并以 replace内容替换
+                c.data = c.data.replace(query, replace);
+                // 如果内容被替换
+                if (d !== c.data) {
+                    // 将新内容写入 window localStorage
+                    window.localStorage.setItem('jsCache_' + url, JSON.stringify(c));
+                    // 将新资源加载到页面
+                    jsCache.load({
+                        'url': url
+                    });
+                }
+            }
+        }
+
+        // 如果支持 localStorage 存储
+        if (localStorage) {
+            // 需删除 无效插件 数组
+            var removes = [];
+            // 遍历localStorage
+            for (var k in localStorage) {
+                // 如果k 包含 jsCache_
+                if (k.indexOf('jsCache_') > -1) {
+                    // 获得 缓存插件url
+                    var bn = k.replace('jsCache_', '');
+                    // 默认不匹配
+                    var load = false;
+                    // 遍历依赖插件cacheMap
+                    for (var n in cacheMap) {
+                        // 获得插件url
+                        var url = cacheMap[n];
+                        // 如果该插件需要加载
+                        if (bn === url) {
+                            // 插件需要加载
+                            load = true;
+                        }
+                    }
+                    // 如果插件不需要加载
+                    if (!load) {
+                        // 放入移除数组
+                        removes.push(bn);
+                    }
+                }
+            }
+            // 设定 app 文件没有被删除
+            var removeApp = false;
+            // 遍历插件移除数组
+            for (var i in removes) {
+                // 获得需删除的资源url
+                var url = removes[i];
+                // 如果删除资源有 app
+                if (url.indexOf('app') > -1) {
+                    // 设定 app 文件被删除
+                    removeApp = true;
+                }
+                // 删除依赖包
+                jsCache.remove(url);
+            }
+            // 如果 app 文件被删除
+            if (removeApp) {
+                // 移除共享组件
+                jsCache.remove(cacheMap.shared);
+            }
+            // 如果不支持 localStorage 加载依赖组件
+        } else {
+            // 加载 localStorage 浏览器兼容组件
+            jsCache.load({
+                url: cacheMap.localStorage + '?swfURL=' + cacheMap.localStorageSWF
+            });
+        }
+
+        // ===================================== css 样式加载 ===============================
+        // 加载样式依赖包
+        jsCache.load({
+            // 加载bootstrap 样式包
+            url: cacheMap.bootstrap
+        }, {
+            // 加载字体图标 样式包
+            url: cacheMap.fontAwesome
+        }, {
+            // 加载ion图标 样式包
+            url: cacheMap.ionIcons
+        }, {
+            // 加载 adminLTE UI 框架 样式包
+            url: cacheMap.adminLTE
+        }, {
+            // 加载 adminLTE UI 框架 【皮肤】 样式包
+            url: cacheMap.adminLTEAllSkins
+        }, {
+            url: cacheMap.select2
+        }).then(function() {
+
+            // 将字体css 文件中路径，修改为CDN资源路径
+            changeJsCacheContent(cacheMap.fontAwesome, /\.\.\/fonts/gm, '//cdn.bootcss.com/font-awesome/4.6.3/fonts');
+            // 将字体css 文件中路径，修改为CDN资源路径
+            changeJsCacheContent(cacheMap.ionIcons, /\.\.\/fonts/gm, '//cdn.bootcss.com/ionicons/2.0.1/fonts');
+
+            // ===================================== javascript 脚本加载 ===============================
+            // 加载相关依赖包
+            jsCache.load({
+                // 加载jquery 组件
+                url: cacheMap.jquery
+            }, {
+                // 加载react 组件
+                url: jsCache.getUrl('react')
+            }).then(function() {
+                jsCache.load({
+                    // 加载react-dom 组件
+                    url: cacheMap.reactDom
+                }, {
+                    // 加载数据版本组件
+                    url: cacheMap.immutable
+                }, {
+                    // 加载事件发布订阅组件
+                    url: cacheMap.pubsub
+                }, {
+                    // react 路由组件
+                    url: cacheMap.reactRouter
+                }, {
+                    // jquery 表单验证组件
+                    url: cacheMap.jqueryValidation
+                }, {
+                    url: cacheMap.select2Js
+                }, {
+                    url: cacheMap.bootstrapJs
+                }).then(function() {
+                    // 加载系统共享组件
+                    jsCache.load({
+                        url: cacheMap.shared
+                    }).then(function() {
+                        // 系统共享组件url
+                        var sharedUrl = cacheMap.shared;
+                        // 现有内容的查询器
+                        var query = "{\n" +
+                            "/******/           // start chunk loading\n" +
+                            "/******/           installedChunks[chunkId] = [callback];\n" +
+                            "/******/           var head = document.getElementsByTagName('head')[0];\n" +
+                            "/******/           var script = document.createElement('script');\n" +
+                            "/******/           script.type = 'text/javascript';\n" +
+                            "/******/           script.charset = 'utf-8';\n" +
+                            "/******/           script.async = true;\n" +
+                            "\n" +
+                            '/******/           script.src = __webpack_require__.p + "" + chunkId + ".chunk.js";\n' +
+                            "/******/           head.appendChild(script);\n" +
+                            "/******/       }";
+                        // 需替换的内容
+                        var replace = '{installedChunks[chunkId] = [callback];jsCache.load({url:__webpack_require__.p + "" + chunkId + ".chunk.js"})}';
+                        // 如果共享组件不包含，以上查询内容，则为压缩后的组件
+                        if (!containJsCacheContent(sharedUrl, query)) {
+                            // 替换压缩后的现有内容查询器
+                            query = '{r[e]=[n];var o=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript",a.charset="utf-8",a.async=!0,a.src=t.p+""+e+".chunk.js",o.appendChild(a)}';
+                            // 需替换的压缩后的内容
+                            replace = '{r[e]=[n];jsCache.load({url:t.p+""+e+".chunk.js"})}'
+                        }
+                        // 替换共享组件的内容，（由head 加载 javascript 修改为 jsCache.load 加载脚本）
+                        changeJsCacheContent(sharedUrl, query, replace);
+                    });
+
+                    // 获得系统app url
+                    var appUrl = jsCache.getUrl('app');
+                    // 如果当前为开发环境
+                    if (isDev) {
+                        // 删除localStorage 缓存app
+                        jsCache.remove(appUrl);
+                    }
+                    // 加载 app js
+                    jsCache.load({
+                        url: appUrl
+                    })
+                });
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

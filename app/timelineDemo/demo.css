@@ -1,0 +1,13 @@
+:global(body) {
+    color: #383838!important;
+    background-color: #f8f8f8!important;
+}
+
+:global(a) {
+    text-decoration: none!important;
+}
+
+:global(.dot-label) {
+    font-size: 1.3 rem;
+    color: #383838;
+}

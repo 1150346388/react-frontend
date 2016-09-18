@@ -1,0 +1,36 @@
+.interactive {
+    height: 300px;
+}
+
+.areaChart {
+    height: 338px;
+}
+
+.pieChartHeight {
+    height: 250px;
+}
+
+.lineChart {
+    height: 300px;
+}
+
+.barChart {
+    height: 300px;
+}
+
+.donutChart {
+    height: 300px;
+}
+
+.labelFormat {
+    font-size: 13px;
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+    font-weight: 600;
+}
+.placeholder{
+    width:100%;
+    height: 500px;
+    background-color: #e6e6e6;
+}
